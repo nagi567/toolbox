@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QRコード生成ツール - URLやテキストから無料でQRコード作成 | ToolBox</title>
+<meta name="description" content="URLやテキストからQRコードを無料で生成。サイズ・色のカスタマイズ可能。PNG画像でダウンロードしてすぐ使える。">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#5b8af5;--accent-glow:rgba(91,138,245,.15);--green:#4ade80;--orange:#fb923c;--radius:12px;--mono:'JetBrains Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}.site-header{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px)}.header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}.logo span{color:var(--accent)}nav a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:600;margin-left:28px;transition:color .2s}nav a:hover{color:var(--text)}.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px 0;font-size:.8rem;color:var(--text-dim)}.breadcrumb a{color:var(--text-dim);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}.main{max-width:900px;margin:0 auto;padding:32px 24px 80px}.main h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.subtitle{color:var(--text-dim);font-size:.95rem;margin-bottom:32px}.tool-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px}.layout-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.input-section label{display:block;font-size:.85rem;font-weight:700;margin-bottom:6px}.input-section textarea{width:100%;height:120px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:.9rem;padding:12px 14px;resize:vertical;outline:none;margin-bottom:16px}.input-section textarea:focus{border-color:var(--accent)}.option-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.option-item label{font-size:.8rem;font-weight:600;color:var(--text-dim);margin-bottom:4px}.option-item input,.option-item select{width:100%;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:.85rem;outline:none}.color-row{display:flex;gap:12px;margin-bottom:16px}.color-item{flex:1}.color-item label{font-size:.8rem;font-weight:600;color:var(--text-dim);margin-bottom:4px;display:block}.color-item input[type=color]{width:100%;height:36px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:var(--bg)}.qr-display{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;align-items:center;justify-content:center;min-height:300px}.qr-display canvas,.qr-display img{max-width:100%;height:auto;border-radius:8px}.qr-placeholder{color:var(--text-dim);font-size:.9rem;text-align:center}.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.btn{padding:10px 20px;font-size:.85rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'Noto Sans JP',sans-serif}.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{opacity:.85}.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-dim)}.btn-outline:hover{border-color:var(--accent);color:var(--text)}.preset-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.preset-btn{padding:6px 12px;font-size:.75rem;font-weight:600;border:1px solid var(--border);border-radius:6px;background:var(--surface2);color:var(--text-dim);cursor:pointer;transition:all .15s;font-family:'Noto Sans JP',sans-serif}.preset-btn:hover{border-color:var(--accent);color:var(--text)}.ad-slot{margin:32px 0}.ad-placeholder{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);height:90px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.8rem}.seo-content{margin-top:48px}.seo-content h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}.seo-content h3{font-size:1.05rem;font-weight:700;margin-top:24px;margin-bottom:8px}.seo-content p{color:var(--text-dim);font-size:.9rem;margin-bottom:12px}.site-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem}.site-footer a{color:var(--text-dim);text-decoration:none;margin:0 12px}.site-footer a:hover{color:var(--text)}@media(max-width:640px){.layout-grid{grid-template-columns:1fr}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="../index.html" class="logo">Tool<span>Box</span></a><nav><a href="../index.html">ホーム</a><a href="../index.html#tools">ツール一覧</a></nav></div></header>
+<div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; <span>QRコード生成</span></div>
+<div class="main">
+<h1>QRコード生成ツール</h1>
+<p class="subtitle">URLやテキストから無料でQRコードを作成。色やサイズもカスタマイズ可能。PNG形式でダウンロードできます。</p>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="tool-area">
+<div class="layout-grid">
+<div class="input-section">
+<label>QRコードにしたい内容</label>
+<textarea id="qrText" placeholder="URLまたはテキストを入力&#10;例: https://example.com" oninput="generate()">https://toolbox-6qh.pages.dev</textarea>
+<div class="preset-row">
+<button class="preset-btn" onclick="setPreset('https://')">URL</button>
+<button class="preset-btn" onclick="setPreset('mailto:')">メール</button>
+<button class="preset-btn" onclick="setPreset('tel:')">電話</button>
+<button class="preset-btn" onclick="setPreset('SMSTO:')">SMS</button>
+</div>
+<div class="option-row">
+<div class="option-item"><label>サイズ</label><select id="qrSize" onchange="generate()"><option value="200">小（200px）</option><option value="300" selected>中（300px）</option><option value="500">大（500px）</option><option value="800">特大（800px）</option></select></div>
+<div class="option-item"><label>誤り訂正レベル</label><select id="qrLevel" onchange="generate()"><option value="L">L（低）</option><option value="M" selected>M（中）</option><option value="Q">Q（高）</option><option value="H">H（最高）</option></select></div>
+</div>
+<div class="color-row">
+<div class="color-item"><label>QRコードの色</label><input type="color" id="qrColor" value="#000000" onchange="generate()"></div>
+<div class="color-item"><label>背景色</label><input type="color" id="qrBg" value="#ffffff" onchange="generate()"></div>
+</div>
+</div>
+<div>
+<div class="qr-display" id="qrDisplay"><div class="qr-placeholder">QRコードがここに表示されます</div></div>
+<div class="btn-row">
+<button class="btn btn-accent" onclick="downloadQR()">PNGダウンロード</button>
+<button class="btn btn-outline" onclick="copyImage()">画像コピー</button>
+</div>
+</div>
+</div>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="seo-content">
+<h2>QRコード生成ツールの使い方</h2>
+<p>テキストエリアにURLやテキストを入力するだけで、自動的にQRコードが生成されます。色やサイズを変更したり、誤り訂正レベルを調整することもできます。</p>
+<h3>誤り訂正レベルとは？</h3>
+<p>QRコードが汚れたり一部が読み取れなくなった場合でも、データを復元できる強度のことです。レベルが高いほど復元能力が上がりますが、QRコードのドットが密になります。一般的にはM（中）で十分です。</p>
+<h3>こんな時に便利</h3>
+<p>名刺・ポスターにURLを載せたい時、Wi-Fi情報やメールアドレスを共有したい時、イベントの誘導に、商品ラベルに、と幅広く使えます。</p>
+<h3>プライバシーについて</h3>
+<p>入力されたテキストやURLはすべてブラウザ内で処理されます。サーバーへの送信は一切ありません。</p>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+</div>
+<footer class="site-footer"><p>&copy; 2026 ToolBox</p><p style="margin-top:8px"><a href="../privacy.html">プライバシーポリシー</a><a href="../about.html">このサイトについて</a></p></footer>
+<script>
+let qrInstance=null;
+function generate(){
+  const text=document.getElementById('qrText').value;
+  const size=+document.getElementById('qrSize').value;
+  const level=document.getElementById('qrLevel').value;
+  const color=document.getElementById('qrColor').value;
+  const bg=document.getElementById('qrBg').value;
+  const display=document.getElementById('qrDisplay');
+  display.innerHTML='';
+  if(!text){display.innerHTML='<div class="qr-placeholder">テキストを入力してください</div>';return}
+  const levels={L:QRCode.CorrectLevel.L,M:QRCode.CorrectLevel.M,Q:QRCode.CorrectLevel.Q,H:QRCode.CorrectLevel.H};
+  qrInstance=new QRCode(display,{text,width:size,height:size,colorDark:color,colorLight:bg,correctLevel:levels[level]});
+}
+function setPreset(prefix){
+  const ta=document.getElementById('qrText');
+  if(!ta.value.startsWith(prefix))ta.value=prefix+ta.value.replace(/^(https?:\/\/|mailto:|tel:|SMSTO:)/,'');
+  generate();
+}
+function downloadQR(){
+  const img=document.querySelector('#qrDisplay img')||document.querySelector('#qrDisplay canvas');
+  if(!img){alert('QRコードがありません');return}
+  const a=document.createElement('a');
+  a.download='qrcode.png';
+  a.href=img.src||img.toDataURL();
+  a.click();
+}
+function copyImage(){
+  const canvas=document.querySelector('#qrDisplay canvas');
+  if(!canvas){alert('QRコードがありません');return}
+  canvas.toBlob(blob=>{navigator.clipboard.write([new ClipboardItem({'image/png':blob})]).then(()=>alert('コピーしました')).catch(()=>alert('このブラウザではコピー非対応です'))});
+}
+generate();
+</script>
+</body>
+</html>

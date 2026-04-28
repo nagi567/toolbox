@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>画像圧縮ツール - JPEG・PNG画像を無料で圧縮 | ToolBox</title>
+<meta name="description" content="JPEG・PNG画像をブラウザ上で圧縮。画質を保ったままファイルサイズを大幅に削減。アップロード不要で安全。">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#5b8af5;--accent-glow:rgba(91,138,245,.15);--green:#4ade80;--orange:#fb923c;--radius:12px;--mono:'JetBrains Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}.site-header{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px)}.header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}.logo span{color:var(--accent)}nav a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:600;margin-left:28px;transition:color .2s}nav a:hover{color:var(--text)}.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px 0;font-size:.8rem;color:var(--text-dim)}.breadcrumb a{color:var(--text-dim);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}.main{max-width:900px;margin:0 auto;padding:32px 24px 80px}.main h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.subtitle{color:var(--text-dim);font-size:.95rem;margin-bottom:32px}.tool-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px}.dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:20px}.dropzone:hover,.dropzone.drag{border-color:var(--accent);background:var(--accent-glow)}.dropzone-icon{font-size:2.5rem;margin-bottom:12px}.dropzone-text{font-size:1rem;font-weight:600;margin-bottom:6px}.dropzone-sub{font-size:.85rem;color:var(--text-dim)}.options{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}.option-item label{font-size:.85rem;font-weight:600;color:var(--text-dim);display:block;margin-bottom:6px}.option-item input[type=range]{width:100%;accent-color:var(--accent)}.option-item .range-display{font-family:var(--mono);font-size:.85rem;color:var(--accent);font-weight:700}.option-item select{width:100%;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:.85rem;outline:none}.results{display:flex;flex-direction:column;gap:16px}.result-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:grid;grid-template-columns:80px 1fr auto;gap:16px;align-items:center}.result-thumb{width:80px;height:80px;border-radius:8px;object-fit:cover;background:var(--surface2)}.result-info{font-size:.85rem}.result-name{font-weight:700;margin-bottom:4px;word-break:break-all}.result-stats{display:flex;gap:12px;flex-wrap:wrap;color:var(--text-dim);font-size:.8rem;font-family:var(--mono)}.result-stats .saved{color:var(--green);font-weight:700}.result-actions{display:flex;flex-direction:column;gap:6px}.btn{padding:10px 20px;font-size:.85rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'Noto Sans JP',sans-serif}.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{opacity:.85}.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-dim)}.btn-outline:hover{border-color:var(--accent);color:var(--text)}.btn-small{padding:6px 12px;font-size:.75rem;font-weight:600;border:1px solid var(--border);border-radius:6px;background:var(--surface2);color:var(--text-dim);cursor:pointer;transition:all .15s;font-family:'Noto Sans JP',sans-serif}.btn-small:hover{border-color:var(--accent);color:var(--text)}.processing{padding:12px;text-align:center;color:var(--text-dim);font-size:.85rem}.ad-slot{margin:32px 0}.ad-placeholder{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);height:90px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.8rem}.seo-content{margin-top:48px}.seo-content h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}.seo-content h3{font-size:1.05rem;font-weight:700;margin-top:24px;margin-bottom:8px}.seo-content p{color:var(--text-dim);font-size:.9rem;margin-bottom:12px}.site-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem}.site-footer a{color:var(--text-dim);text-decoration:none;margin:0 12px}.site-footer a:hover{color:var(--text)}@media(max-width:640px){.options{grid-template-columns:1fr}.result-item{grid-template-columns:60px 1fr;gap:10px}.result-thumb{width:60px;height:60px}.result-actions{grid-column:1/-1;flex-direction:row}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="../index.html" class="logo">Tool<span>Box</span></a><nav><a href="../index.html">ホーム</a><a href="../index.html#tools">ツール一覧</a></nav></div></header>
+<div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; <span>画像圧縮</span></div>
+<div class="main">
+<h1>画像圧縮ツール</h1>
+<p class="subtitle">JPEG・PNG画像をブラウザ上で圧縮。画質を保ちながらファイルサイズを大幅削減。</p>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="tool-area">
+<div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+<div class="dropzone-icon">🖼️</div>
+<div class="dropzone-text">画像をドラッグ＆ドロップ または クリックして選択</div>
+<div class="dropzone-sub">JPEG・PNG・WebP対応 / 複数ファイル可 / アップロードなし（ブラウザ内処理）</div>
+</div>
+<input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple style="display:none" onchange="handleFiles(this.files)">
+<div class="options">
+<div class="option-item"><label>圧縮率: <span class="range-display" id="qualityVal">75</span>%</label><input type="range" id="quality" min="10" max="100" value="75" oninput="document.getElementById('qualityVal').textContent=this.value"></div>
+<div class="option-item"><label>最大幅</label><select id="maxWidth"><option value="0">変更しない</option><option value="800">800px</option><option value="1200">1200px</option><option value="1920" selected>1920px (Full HD)</option><option value="2560">2560px (2K)</option></select></div>
+</div>
+<div class="results" id="results"></div>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="seo-content">
+<h2>画像圧縮ツールの使い方</h2>
+<p>画像をドラッグ＆ドロップするか、ファイルを選択するだけ。圧縮率を調整して、画質とファイルサイズのバランスを自由にコントロールできます。複数ファイルを一度に処理することも可能です。</p>
+<h3>圧縮率の目安</h3>
+<p>75%前後が画質と容量のベストバランス。Web用なら70%、印刷用なら85〜90%、サムネイル用なら50〜60%が目安です。</p>
+<h3>最大幅の設定</h3>
+<p>大きすぎる画像はブラウザで表示が遅くなります。Webサイト用なら1920px、SNS用なら1200pxくらいに縮小すると快適です。</p>
+<h3>プライバシーについて</h3>
+<p>画像はすべてブラウザ内で処理されます。サーバーへのアップロードは一切ありません。プライベートな画像も安心して圧縮できます。</p>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+</div>
+<footer class="site-footer"><p>&copy; 2026 ToolBox</p><p style="margin-top:8px"><a href="../privacy.html">プライバシーポリシー</a><a href="../about.html">このサイトについて</a></p></footer>
+<script>
+const dropzone=document.getElementById('dropzone');
+['dragenter','dragover'].forEach(e=>dropzone.addEventListener(e,ev=>{ev.preventDefault();dropzone.classList.add('drag')}));
+['dragleave','drop'].forEach(e=>dropzone.addEventListener(e,ev=>{ev.preventDefault();dropzone.classList.remove('drag')}));
+dropzone.addEventListener('drop',ev=>handleFiles(ev.dataTransfer.files));
+
+async function handleFiles(files){
+  const results=document.getElementById('results');
+  for(const file of files){
+    if(!file.type.startsWith('image/'))continue;
+    const item=document.createElement('div');
+    item.className='result-item';
+    item.innerHTML='<img class="result-thumb" src=""><div class="result-info"><div class="result-name">'+file.name+'</div><div class="processing">処理中...</div></div><div class="result-actions"></div>';
+    results.prepend(item);
+    try{
+      const compressed=await compressImage(file);
+      const url=URL.createObjectURL(compressed);
+      item.querySelector('.result-thumb').src=url;
+      const origKB=(file.size/1024).toFixed(1);
+      const newKB=(compressed.size/1024).toFixed(1);
+      const saved=Math.round((1-compressed.size/file.size)*100);
+      item.querySelector('.result-info').innerHTML=`<div class="result-name">${file.name}</div><div class="result-stats"><span>元: ${origKB} KB</span><span>→ ${newKB} KB</span><span class="saved">-${saved}%</span></div>`;
+      const dl=document.createElement('button');dl.className='btn btn-accent';dl.textContent='ダウンロード';dl.onclick=()=>{const a=document.createElement('a');a.href=url;a.download='compressed_'+file.name.replace(/\.[^.]+$/,'.jpg');a.click()};
+      item.querySelector('.result-actions').appendChild(dl);
+    }catch(e){item.querySelector('.processing').textContent='エラー: '+e.message}
+  }
+}
+
+function compressImage(file){
+  return new Promise((resolve,reject)=>{
+    const quality=+document.getElementById('quality').value/100;
+    const maxW=+document.getElementById('maxWidth').value;
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=new Image();
+      img.onload=()=>{
+        let w=img.width,h=img.height;
+        if(maxW>0&&w>maxW){h=h*(maxW/w);w=maxW}
+        const canvas=document.createElement('canvas');
+        canvas.width=w;canvas.height=h;
+        const ctx=canvas.getContext('2d');
+        ctx.drawImage(img,0,0,w,h);
+        canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('圧縮失敗')),'image/jpeg',quality);
+      };
+      img.onerror=()=>reject(new Error('画像読み込み失敗'));
+      img.src=e.target.result;
+    };
+    reader.onerror=()=>reject(new Error('ファイル読み込み失敗'));
+    reader.readAsDataURL(file);
+  });
+}
+</script>
+</body>
+</html>
