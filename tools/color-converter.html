@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カラーコード変換ツール - HEX・RGB・HSL相互変換 | ToolBox</title>
+<meta name="description" content="HEX・RGB・HSLカラーコードを相互変換。カラーピッカー付きで直感的に色を選択。Web制作・デザインに便利な無料ツール。">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#5b8af5;--accent-glow:rgba(91,138,245,.15);--green:#4ade80;--radius:12px;--mono:'JetBrains Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}.site-header{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px)}.header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}.logo span{color:var(--accent)}nav a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:600;margin-left:28px;transition:color .2s}nav a:hover{color:var(--text)}.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px 0;font-size:.8rem;color:var(--text-dim)}.breadcrumb a{color:var(--text-dim);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}.main{max-width:900px;margin:0 auto;padding:32px 24px 80px}.main h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.subtitle{color:var(--text-dim);font-size:.95rem;margin-bottom:32px}.tool-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px}.picker-row{display:flex;gap:20px;align-items:start;margin-bottom:24px;flex-wrap:wrap}.color-preview{width:120px;height:120px;border-radius:var(--radius);border:2px solid var(--border);flex-shrink:0;position:relative;overflow:hidden}.color-preview input[type=color]{position:absolute;inset:0;width:100%;height:100%;border:none;cursor:pointer;opacity:0}.color-bg{width:100%;height:100%;pointer-events:none}.codes-grid{flex:1;display:grid;gap:12px;min-width:250px}.code-row{display:flex;align-items:center;gap:10px}.code-row label{font-size:.8rem;font-weight:700;width:40px;flex-shrink:0}.code-row input[type=text]{flex:1;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--mono);font-size:.9rem;outline:none}.code-row input[type=text]:focus{border-color:var(--accent)}.code-row button{padding:8px 12px;font-size:.75rem;font-weight:600;border:1px solid var(--border);border-radius:6px;background:var(--surface2);color:var(--text-dim);cursor:pointer;transition:all .15s}.code-row button:hover{border-color:var(--accent);color:var(--text)}.palette-section{margin-top:24px}.palette-section h3{font-size:.9rem;font-weight:700;margin-bottom:12px}.palette-row{display:flex;gap:6px;flex-wrap:wrap}.palette-swatch{width:48px;height:48px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:border-color .15s,transform .15s}.palette-swatch:hover{border-color:var(--text);transform:scale(1.1)}.saved-section{margin-top:24px}.saved-section h3{font-size:.9rem;font-weight:700;margin-bottom:12px}.saved-colors{display:flex;gap:8px;flex-wrap:wrap}.saved-swatch{width:40px;height:40px;border-radius:8px;cursor:pointer;border:2px solid var(--border);position:relative;transition:border-color .15s}.saved-swatch:hover{border-color:var(--text)}.btn-save{padding:8px 16px;font-size:.8rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;background:var(--accent);color:#fff;margin-top:12px}.ad-slot{margin:32px 0}.ad-placeholder{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);height:90px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.8rem}.seo-content{margin-top:48px}.seo-content h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}.seo-content h3{font-size:1.05rem;font-weight:700;margin-top:24px;margin-bottom:8px}.seo-content p{color:var(--text-dim);font-size:.9rem;margin-bottom:12px}.site-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem}.site-footer a{color:var(--text-dim);text-decoration:none;margin:0 12px}.site-footer a:hover{color:var(--text)}@media(max-width:640px){.color-preview{width:80px;height:80px}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="../index.html" class="logo">Tool<span>Box</span></a><nav><a href="../index.html">ホーム</a><a href="../index.html#tools">ツール一覧</a></nav></div></header>
+<div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; <span>カラーコード変換</span></div>
+<div class="main">
+<h1>カラーコード変換ツール</h1>
+<p class="subtitle">HEX・RGB・HSLを相互変換。カラーピッカーで直感的に色を選択できます。</p>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="tool-area">
+<div class="picker-row">
+<div class="color-preview"><div class="color-bg" id="colorBg" style="background:#5b8af5"></div><input type="color" id="colorPicker" value="#5b8af5" oninput="fromPicker(this.value)"></div>
+<div class="codes-grid">
+<div class="code-row"><label>HEX</label><input type="text" id="hexVal" value="#5b8af5" oninput="fromHex()"><button onclick="copy('hexVal')">コピー</button></div>
+<div class="code-row"><label>RGB</label><input type="text" id="rgbVal" value="rgb(91, 138, 245)" oninput="fromRgb()"><button onclick="copy('rgbVal')">コピー</button></div>
+<div class="code-row"><label>HSL</label><input type="text" id="hslVal" value="hsl(222, 89%, 66%)" oninput="fromHsl()"><button onclick="copy('hslVal')">コピー</button></div>
+</div>
+</div>
+<div class="palette-section">
+<h3>人気の色</h3>
+<div class="palette-row" id="paletteRow"></div>
+</div>
+<div class="saved-section">
+<h3>保存した色</h3>
+<div class="saved-colors" id="savedColors"></div>
+<button class="btn-save" onclick="saveColor()">現在の色を保存</button>
+</div>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="seo-content">
+<h2>カラーコード変換ツールの使い方</h2>
+<p>カラーピッカーで色を選ぶか、HEX・RGB・HSLのいずれかの値を入力すると、他の形式に自動変換されます。値をクリックでコピーできます。</p>
+<h3>HEX・RGB・HSLとは？</h3>
+<p>HEXは16進数で色を表す形式（#FFFFFFなど）、RGBは赤・緑・青の値（0-255）で表す形式、HSLは色相・彩度・明度で表す形式です。Web制作ではHEXがよく使われますが、色の調整にはHSLが便利です。</p>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+</div>
+<footer class="site-footer"><p>&copy; 2026 ToolBox</p><p style="margin-top:8px"><a href="../privacy.html">プライバシーポリシー</a><a href="../about.html">このサイトについて</a></p></footer>
+<script>
+const popular=['#FF6B6B','#4ECDC4','#45B7D1','#96CEB4','#FFEAA7','#DDA0DD','#FF8C00','#6C5CE7','#00B894','#FD79A8','#2D3436','#E17055','#0984E3','#FDCB6E','#A29BFE','#55EFC4'];
+const palRow=document.getElementById('paletteRow');
+popular.forEach(c=>{const d=document.createElement('div');d.className='palette-swatch';d.style.background=c;d.onclick=()=>fromPicker(c);palRow.appendChild(d)});
+let saved=[];
+function hexToRgb(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16);return[(n>>16)&255,(n>>8)&255,n&255]}
+function rgbToHex(r,g,b){return '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h,s,l=(max+min)/2;if(max===min){h=s=0}else{const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=((g-b)/d+(g<b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;case b:h=((r-g)/d+4)/6;break}}return[Math.round(h*360),Math.round(s*100),Math.round(l*100)]}
+function hslToRgb(h,s,l){h/=360;s/=100;l/=100;let r,g,b;if(s===0){r=g=b=l}else{const hue2rgb=(p,q,t)=>{if(t<0)t+=1;if(t>1)t-=1;if(t<1/6)return p+(q-p)*6*t;if(t<1/2)return q;if(t<2/3)return p+(q-p)*(2/3-t)*6;return p};const q=l<.5?l*(1+s):l+s-l*s;const p=2*l-q;r=hue2rgb(p,q,h+1/3);g=hue2rgb(p,q,h);b=hue2rgb(p,q,h-1/3)}return[Math.round(r*255),Math.round(g*255),Math.round(b*255)]}
+function updateAll(r,g,b){
+  const hex=rgbToHex(r,g,b);
+  const [h,s,l]=rgbToHsl(r,g,b);
+  document.getElementById('hexVal').value=hex;
+  document.getElementById('rgbVal').value=`rgb(${r}, ${g}, ${b})`;
+  document.getElementById('hslVal').value=`hsl(${h}, ${s}%, ${l}%)`;
+  document.getElementById('colorBg').style.background=hex;
+  document.getElementById('colorPicker').value=hex;
+}
+function fromPicker(v){const[r,g,b]=hexToRgb(v);updateAll(r,g,b)}
+function fromHex(){const v=document.getElementById('hexVal').value.trim();if(/^#?[0-9a-fA-F]{3,6}$/.test(v)){const[r,g,b]=hexToRgb(v);updateAll(r,g,b)}}
+function fromRgb(){const m=document.getElementById('rgbVal').value.match(/(\d+)/g);if(m&&m.length>=3)updateAll(+m[0],+m[1],+m[2])}
+function fromHsl(){const m=document.getElementById('hslVal').value.match(/(\d+)/g);if(m&&m.length>=3){const[r,g,b]=hslToRgb(+m[0],+m[1],+m[2]);updateAll(r,g,b)}}
+function copy(id){navigator.clipboard.writeText(document.getElementById(id).value)}
+function saveColor(){const hex=document.getElementById('hexVal').value;if(!saved.includes(hex)){saved.push(hex);renderSaved()}}
+function renderSaved(){const el=document.getElementById('savedColors');el.innerHTML=saved.map(c=>`<div class="saved-swatch" style="background:${c}" onclick="fromPicker('${c}')" title="${c}"></div>`).join('')}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年齢計算ツール - 生年月日から年齢を計算 | ToolBox</title>
+<meta name="description" content="生年月日を入力するだけで現在の年齢を年・月・日単位で正確に計算。干支・星座・誕生石もわかる無料ツール。">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#5b8af5;--accent-glow:rgba(91,138,245,.15);--green:#4ade80;--orange:#fb923c;--radius:12px;--mono:'JetBrains Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}.site-header{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px)}.header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}.logo span{color:var(--accent)}nav a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:600;margin-left:28px;transition:color .2s}nav a:hover{color:var(--text)}.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px 0;font-size:.8rem;color:var(--text-dim)}.breadcrumb a{color:var(--text-dim);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}.main{max-width:900px;margin:0 auto;padding:32px 24px 80px}.main h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.subtitle{color:var(--text-dim);font-size:.95rem;margin-bottom:32px}.tool-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px}.input-row{display:flex;gap:16px;align-items:end;margin-bottom:24px;flex-wrap:wrap}.input-row label{font-size:.85rem;font-weight:600;color:var(--text-dim);display:block;margin-bottom:6px}.input-row input[type=date]{padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:1rem;outline:none}.input-row input[type=date]:focus{border-color:var(--accent)}.age-hero{text-align:center;padding:32px 0;margin-bottom:24px}.age-big{font-family:var(--mono);font-size:4rem;font-weight:900;color:var(--accent);line-height:1}.age-sub{font-size:1rem;color:var(--text-dim);margin-top:8px}.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}.detail-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px}.detail-card .label{font-size:.8rem;color:var(--text-dim);font-weight:600;margin-bottom:4px}.detail-card .value{font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--text)}.fun-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}.fun-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}.fun-emoji{font-size:1.5rem;margin-bottom:4px}.fun-label{font-size:.7rem;color:var(--text-dim)}.fun-val{font-size:.9rem;font-weight:700;margin-top:2px}.ad-slot{margin:32px 0}.ad-placeholder{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);height:90px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.8rem}.seo-content{margin-top:48px}.seo-content h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}.seo-content h3{font-size:1.05rem;font-weight:700;margin-top:24px;margin-bottom:8px}.seo-content p{color:var(--text-dim);font-size:.9rem;margin-bottom:12px}.site-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem}.site-footer a{color:var(--text-dim);text-decoration:none;margin:0 12px}.site-footer a:hover{color:var(--text)}@media(max-width:640px){.age-big{font-size:3rem}.detail-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="../index.html" class="logo">Tool<span>Box</span></a><nav><a href="../index.html">ホーム</a><a href="../index.html#tools">ツール一覧</a></nav></div></header>
+<div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; <span>年齢計算</span></div>
+<div class="main">
+<h1>年齢計算ツール</h1>
+<p class="subtitle">生年月日を入力するだけで、現在の年齢を正確に計算します。</p>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="tool-area">
+<div class="input-row"><div><label>生年月日</label><input type="date" id="birthDate" value="2000-01-01"></div></div>
+<div class="age-hero"><div class="age-big" id="ageBig">-</div><div class="age-sub" id="ageSub"></div></div>
+<div class="detail-grid">
+<div class="detail-card"><div class="label">生まれてからの日数</div><div class="value" id="totalDays">-</div></div>
+<div class="detail-card"><div class="label">生まれてからの時間</div><div class="value" id="totalHours">-</div></div>
+<div class="detail-card"><div class="label">次の誕生日まで</div><div class="value" id="nextBday">-</div></div>
+<div class="detail-card"><div class="label">曜日</div><div class="value" id="birthDay">-</div></div>
+</div>
+<div class="fun-facts">
+<div class="fun-card"><div class="fun-emoji">🐉</div><div class="fun-label">干支</div><div class="fun-val" id="zodiacCN">-</div></div>
+<div class="fun-card"><div class="fun-emoji">⭐</div><div class="fun-label">星座</div><div class="fun-val" id="zodiacWest">-</div></div>
+<div class="fun-card"><div class="fun-emoji">💎</div><div class="fun-label">誕生石</div><div class="fun-val" id="birthStone">-</div></div>
+<div class="fun-card"><div class="fun-emoji">🎓</div><div class="fun-label">学年（日本）</div><div class="fun-val" id="schoolYear">-</div></div>
+</div>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="seo-content">
+<h2>年齢計算ツールの使い方</h2>
+<p>生年月日を入力するだけで、現在の年齢を年・月・日単位で正確に計算します。生まれてからの日数や時間、次の誕生日までの日数もあわせて確認できます。</p>
+<h3>追加情報</h3>
+<p>干支・星座・誕生石・学年（日本の学校制度に基づく）も自動で表示します。ちょっとした話のネタにもどうぞ。</p>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+</div>
+<footer class="site-footer"><p>&copy; 2026 ToolBox</p><p style="margin-top:8px"><a href="../privacy.html">プライバシーポリシー</a><a href="../about.html">このサイトについて</a></p></footer>
+<script>
+const bd=document.getElementById('birthDate');
+bd.addEventListener('change',calc);
+const eto=['申','酉','戌','亥','子','丑','寅','卯','辰','巳','午','未'];
+const stones=['ガーネット','アメジスト','アクアマリン','ダイヤモンド','エメラルド','パール','ルビー','ペリドット','サファイア','オパール','トパーズ','タンザナイト'];
+const days=['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
+function getZodiac(m,d){const z=[['やぎ座',1,19],['みずがめ座',2,18],['うお座',3,20],['おひつじ座',4,19],['おうし座',5,20],['ふたご座',6,21],['かに座',7,22],['しし座',8,22],['おとめ座',9,22],['てんびん座',10,23],['さそり座',11,22],['いて座',12,21],['やぎ座',12,31]];for(let i=0;i<z.length;i++){if(m<z[i][1]||(m===z[i][1]&&d<=z[i][2]))return z[i][0]}return 'やぎ座'}
+function calc(){
+  const birth=new Date(bd.value);
+  const now=new Date();
+  if(isNaN(birth))return;
+  let years=now.getFullYear()-birth.getFullYear();
+  let months=now.getMonth()-birth.getMonth();
+  let d=now.getDate()-birth.getDate();
+  if(d<0){months--;const prev=new Date(now.getFullYear(),now.getMonth(),0);d+=prev.getDate()}
+  if(months<0){years--;months+=12}
+  document.getElementById('ageBig').textContent=years+'歳';
+  document.getElementById('ageSub').textContent=years+'年'+months+'ヶ月'+d+'日';
+  const totalD=Math.floor((now-birth)/864e5);
+  document.getElementById('totalDays').textContent=totalD.toLocaleString()+'日';
+  document.getElementById('totalHours').textContent=(totalD*24).toLocaleString()+'時間';
+  document.getElementById('birthDay').textContent=days[birth.getDay()];
+  // next birthday
+  let next=new Date(now.getFullYear(),birth.getMonth(),birth.getDate());
+  if(next<=now)next=new Date(now.getFullYear()+1,birth.getMonth(),birth.getDate());
+  const untilBday=Math.ceil((next-now)/864e5);
+  document.getElementById('nextBday').textContent=untilBday===0?'今日！':untilBday+'日後';
+  // fun facts
+  document.getElementById('zodiacCN').textContent=eto[birth.getFullYear()%12];
+  document.getElementById('zodiacWest').textContent=getZodiac(birth.getMonth()+1,birth.getDate());
+  document.getElementById('birthStone').textContent=stones[birth.getMonth()];
+  // school year (Japan: April start, age 6)
+  const sy=birth.getFullYear()+6+(birth.getMonth()>=3?0:-1);
+  const grade=now.getFullYear()-sy-(now.getMonth()<3?1:0);
+  let schoolLabel='-';
+  if(grade<1)schoolLabel='未就学';
+  else if(grade<=6)schoolLabel='小学'+grade+'年生';
+  else if(grade<=9)schoolLabel='中学'+(grade-6)+'年生';
+  else if(grade<=12)schoolLabel='高校'+(grade-9)+'年生';
+  else if(grade<=16)schoolLabel='大学'+(grade-12)+'年生';
+  else schoolLabel='社会人';
+  document.getElementById('schoolYear').textContent=schoolLabel;
+}
+calc();
+</script>
+</body>
+</html>

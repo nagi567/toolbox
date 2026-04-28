@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文字数カウンター - 無料オンラインツール | ToolBox</title>
+<meta name="description" content="テキストの文字数・単語数・行数・バイト数をリアルタイムでカウント。原稿チェック、ツイート文字数制限の確認に。無料・登録不要。">
+<meta name="keywords" content="文字数カウント,文字数,カウンター,文字数チェック,無料,オンライン,ツイート,原稿">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface2: #1a1a26;
+  --border: #2a2a3a;
+  --text: #e8e8f0;
+  --text-dim: #8888a0;
+  --accent: #5b8af5;
+  --accent-glow: rgba(91, 138, 245, 0.15);
+  --green: #4ade80;
+  --orange: #fb923c;
+  --red: #f87171;
+  --radius: 12px;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+.logo span { color: var(--accent); }
+
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-left: 28px;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--text); }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 24px 0;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+.breadcrumb a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+.breadcrumb a:hover { color: var(--accent); }
+
+/* ===== MAIN ===== */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.main h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.main .subtitle {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+}
+
+/* ===== TEXTAREA ===== */
+.textarea-wrap {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+#textInput {
+  width: 100%;
+  min-height: 280px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  padding: 20px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#textInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+#textInput::placeholder {
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+.textarea-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-small {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-small:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ===== STATS GRID ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.stat-card:hover {
+  border-color: var(--accent);
+}
+
+.stat-value {
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ===== LIMIT CHECKER ===== */
+.limit-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.limit-section h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.limit-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.limit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.limit-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.limit-bar-bg {
+  flex: 1;
+  height: 8px;
+  background: var(--surface2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.limit-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  transition: width 0.3s, background 0.3s;
+}
+
+.limit-bar-fill.warn { background: var(--orange); }
+.limit-bar-fill.over { background: var(--red); }
+
+.limit-count {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  width: 100px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ===== AD SLOT ===== */
+.ad-slot {
+  margin: 32px 0;
+}
+
+.ad-placeholder {
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+/* ===== SEO CONTENT ===== */
+.seo-content {
+  margin-top: 48px;
+}
+
+.seo-content h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.seo-content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.seo-content p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+.site-footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  margin: 0 12px;
+}
+.site-footer a:hover { color: var(--text); }
+
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .limit-name { width: 70px; font-size: 0.75rem; }
+  .limit-count { width: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">Tool<span>Box</span></a>
+    <nav>
+      <a href="../index.html">ホーム</a>
+      <a href="../index.html#tools">ツール一覧</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../index.html">ホーム</a> &gt; <span>文字数カウンター</span>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <h1>文字数カウンター</h1>
+  <p class="subtitle">テキストの文字数・単語数・行数をリアルタイムでカウント。原稿チェックやSNS投稿の文字数確認に。</p>
+
+  <!-- TEXTAREA -->
+  <div class="textarea-wrap">
+    <textarea id="textInput" placeholder="ここにテキストを入力または貼り付けてください..."></textarea>
+    <div class="textarea-actions">
+      <button class="btn-small" onclick="copyText()">コピー</button>
+      <button class="btn-small" onclick="clearText()">クリア</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value" id="charCount">0</div>
+      <div class="stat-label">文字数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="charNoSpace">0</div>
+      <div class="stat-label">文字数（空白除く）</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="wordCount">0</div>
+      <div class="stat-label">単語数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="lineCount">0</div>
+      <div class="stat-label">行数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="byteCount">0</div>
+      <div class="stat-label">バイト数</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="paragraphCount">0</div>
+      <div class="stat-label">段落数</div>
+    </div>
+  </div>
+
+  <!-- LIMIT CHECKER -->
+  <div class="limit-section">
+    <h3>SNS文字数チェック</h3>
+    <div class="limit-bars">
+      <div class="limit-item">
+        <span class="limit-name">X (Twitter)</span>
+        <div class="limit-bar-bg"><div class="limit-bar-fill" id="barTwitter" style="width:0%"></div></div>
+        <span class="limit-count" id="countTwitter">0 / 140</span>
+      </div>
+      <div class="limit-item">
+        <span class="limit-name">Instagram</span>
+        <div class="limit-bar-bg"><div class="limit-bar-fill" id="barInsta" style="width:0%"></div></div>
+        <span class="limit-count" id="countInsta">0 / 2,200</span>
+      </div>
+      <div class="limit-item">
+        <span class="limit-name">YouTube</span>
+        <div class="limit-bar-bg"><div class="limit-bar-fill" id="barYT" style="width:0%"></div></div>
+        <span class="limit-count" id="countYT">0 / 5,000</span>
+      </div>
+      <div class="limit-item">
+        <span class="limit-name">LINE</span>
+        <div class="limit-bar-bg"><div class="limit-bar-fill" id="barLINE" style="width:0%"></div></div>
+        <span class="limit-count" id="countLINE">0 / 10,000</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT (middle) -->
+  <div class="ad-slot">
+    <div class="ad-placeholder">広告スペース（AdSense）</div>
+  </div>
+
+  <!-- SEO CONTENT -->
+  <div class="seo-content">
+    <h2>文字数カウンターの使い方</h2>
+    <p>テキストエリアに文字を入力するか、テキストを貼り付けるだけで、自動的に文字数がカウントされます。空白を含む文字数と含まない文字数の両方を確認できます。</p>
+
+    <h3>こんな時に便利</h3>
+    <p>ブログやSNSの投稿文を書く際の文字数チェック、レポートや論文の文字数制限の確認、X（Twitter）やInstagramの投稿文字数制限の確認などにお使いいただけます。</p>
+
+    <h3>対応しているカウント項目</h3>
+    <p>文字数（全角・半角対応）、空白を除いた文字数、単語数（英語・日本語対応）、行数、バイト数（UTF-8）、段落数をリアルタイムでカウントします。</p>
+
+    <h3>プライバシーについて</h3>
+    <p>入力されたテキストはすべてお使いのブラウザ内で処理されます。サーバーへの送信は一切行いません。安心してご利用ください。</p>
+  </div>
+
+  <!-- AD SLOT (bottom) -->
+  <div class="ad-slot">
+    <div class="ad-placeholder">広告スペース（AdSense）</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>&copy; 2026 ToolBox - 無料オンラインツール集</p>
+  <p style="margin-top: 8px;">
+    <a href="../privacy.html">プライバシーポリシー</a>
+    <a href="../about.html">このサイトについて</a>
+  </p>
+</footer>
+
+<script>
+const textarea = document.getElementById('textInput');
+
+textarea.addEventListener('input', updateCounts);
+
+function updateCounts() {
+  const text = textarea.value;
+
+  // Character counts
+  const chars = text.length;
+  const charsNoSpace = text.replace(/\s/g, '').length;
+
+  // Word count (handles Japanese + English)
+  let words = 0;
+  if (text.trim().length > 0) {
+    // Count English words
+    const englishWords = text.match(/[a-zA-Z0-9]+/g);
+    const engCount = englishWords ? englishWords.length : 0;
+    // Count Japanese characters (each is roughly a "word")
+    const japaneseChars = text.match(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\u3400-\u4DBF]/g);
+    const jpCount = japaneseChars ? japaneseChars.length : 0;
+    words = engCount + jpCount;
+  }
+
+  // Line count
+  const lines = text.length === 0 ? 0 : text.split('\n').length;
+
+  // Byte count (UTF-8)
+  const bytes = new Blob([text]).size;
+
+  // Paragraph count
+  const paragraphs = text.length === 0 ? 0 : text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
+  const paraCount = text.length === 0 ? 0 : Math.max(paragraphs, text.trim().length > 0 ? 1 : 0);
+
+  // Update display
+  document.getElementById('charCount').textContent = chars.toLocaleString();
+  document.getElementById('charNoSpace').textContent = charsNoSpace.toLocaleString();
+  document.getElementById('wordCount').textContent = words.toLocaleString();
+  document.getElementById('lineCount').textContent = lines.toLocaleString();
+  document.getElementById('byteCount').textContent = bytes.toLocaleString();
+  document.getElementById('paragraphCount').textContent = paraCount.toLocaleString();
+
+  // SNS limits
+  updateBar('Twitter', chars, 140);
+  updateBar('Insta', chars, 2200);
+  updateBar('YT', chars, 5000);
+  updateBar('LINE', chars, 10000);
+}
+
+function updateBar(name, current, max) {
+  const pct = Math.min((current / max) * 100, 100);
+  const bar = document.getElementById('bar' + name);
+  const count = document.getElementById('count' + name);
+
+  bar.style.width = pct + '%';
+  bar.className = 'limit-bar-fill';
+  if (pct >= 100) bar.classList.add('over');
+  else if (pct >= 80) bar.classList.add('warn');
+
+  count.textContent = current.toLocaleString() + ' / ' + max.toLocaleString();
+}
+
+function copyText() {
+  textarea.select();
+  navigator.clipboard.writeText(textarea.value);
+}
+
+function clearText() {
+  textarea.value = '';
+  updateCounts();
+}
+</script>
+
+</body>
+</html>

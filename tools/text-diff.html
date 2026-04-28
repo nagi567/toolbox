@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テキスト差分比較ツール - 2つのテキストの違いをハイライト | ToolBox</title>
+<meta name="description" content="2つのテキストの差分を色分けでハイライト表示。文章の修正箇所を一目で確認できる無料オンラインツール。">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#5b8af5;--accent-glow:rgba(91,138,245,.15);--green:#4ade80;--red:#f87171;--radius:12px;--mono:'JetBrains Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}.site-header{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px)}.header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}.logo span{color:var(--accent)}nav a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:600;margin-left:28px;transition:color .2s}nav a:hover{color:var(--text)}.breadcrumb{max-width:1100px;margin:0 auto;padding:16px 24px 0;font-size:.8rem;color:var(--text-dim)}.breadcrumb a{color:var(--text-dim);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}.main{max-width:1100px;margin:0 auto;padding:32px 24px 80px}.main h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.subtitle{color:var(--text-dim);font-size:.95rem;margin-bottom:32px}.editor-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}.editor-col label{display:block;font-size:.85rem;font-weight:700;margin-bottom:6px}.editor-col textarea{width:100%;height:250px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--mono);font-size:.85rem;line-height:1.6;padding:16px;resize:vertical;outline:none}.editor-col textarea:focus{border-color:var(--accent)}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}.btn{padding:10px 20px;font-size:.85rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'Noto Sans JP',sans-serif}.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{opacity:.85}.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-dim)}.btn-outline:hover{border-color:var(--accent);color:var(--text)}.diff-result{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;font-family:var(--mono);font-size:.85rem;line-height:2;white-space:pre-wrap;word-break:break-all;min-height:100px}.diff-add{background:rgba(74,222,128,.15);color:var(--green);padding:1px 3px;border-radius:3px}.diff-del{background:rgba(248,113,113,.15);color:var(--red);text-decoration:line-through;padding:1px 3px;border-radius:3px}.stats-row{display:flex;gap:24px;margin-bottom:24px;flex-wrap:wrap}.stat-item{font-size:.85rem;color:var(--text-dim)}.stat-item span{font-family:var(--mono);font-weight:700}.stat-item .added{color:var(--green)}.stat-item .removed{color:var(--red)}.ad-slot{margin:32px 0}.ad-placeholder{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);height:90px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.8rem}.seo-content{margin-top:48px}.seo-content h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}.seo-content h3{font-size:1.05rem;font-weight:700;margin-top:24px;margin-bottom:8px}.seo-content p{color:var(--text-dim);font-size:.9rem;margin-bottom:12px}.site-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem}.site-footer a{color:var(--text-dim);text-decoration:none;margin:0 12px}.site-footer a:hover{color:var(--text)}@media(max-width:640px){.editor-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="../index.html" class="logo">Tool<span>Box</span></a><nav><a href="../index.html">ホーム</a><a href="../index.html#tools">ツール一覧</a></nav></div></header>
+<div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; <span>テキスト差分比較</span></div>
+<div class="main">
+<h1>テキスト差分比較ツール</h1>
+<p class="subtitle">2つのテキストの差分をハイライト表示。修正箇所が一目でわかります。</p>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="editor-wrap">
+<div class="editor-col"><label>テキスト1（変更前）</label><textarea id="text1" placeholder="変更前のテキストを入力..."></textarea></div>
+<div class="editor-col"><label>テキスト2（変更後）</label><textarea id="text2" placeholder="変更後のテキストを入力..."></textarea></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-accent" onclick="compare()">比較する</button>
+<button class="btn btn-outline" onclick="swapTexts()">テキストを入れ替え</button>
+<button class="btn btn-outline" onclick="clearAll()">クリア</button>
+</div>
+<div class="stats-row">
+<div class="stat-item">追加: <span class="added" id="addCount">0</span></div>
+<div class="stat-item">削除: <span class="removed" id="delCount">0</span></div>
+<div class="stat-item">一致率: <span id="matchRate">-</span></div>
+</div>
+<div class="diff-result" id="diffResult">「比較する」ボタンを押すと結果が表示されます</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="seo-content">
+<h2>テキスト差分比較ツールの使い方</h2>
+<p>左に変更前のテキスト、右に変更後のテキストを入力して「比較する」ボタンを押すだけ。追加された部分は緑色、削除された部分は赤色の取り消し線でハイライト表示されます。</p>
+<h3>こんな時に便利</h3>
+<p>文章の校正・修正箇所の確認、コードの変更点チェック、契約書や規約の変更箇所確認などにお使いいただけます。</p>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+</div>
+<footer class="site-footer"><p>&copy; 2026 ToolBox</p><p style="margin-top:8px"><a href="../privacy.html">プライバシーポリシー</a><a href="../about.html">このサイトについて</a></p></footer>
+<script>
+function compare(){
+  const a=document.getElementById('text1').value;
+  const b=document.getElementById('text2').value;
+  if(!a&&!b){document.getElementById('diffResult').textContent='テキストを入力してください';return}
+  const linesA=a.split('\n'),linesB=b.split('\n');
+  let html='',adds=0,dels=0,same=0;
+  const maxLen=Math.max(linesA.length,linesB.length);
+  for(let i=0;i<maxLen;i++){
+    const la=linesA[i]||'';const lb=linesB[i]||'';
+    if(la===lb){html+=esc(la)+'\n';same+=la.length}
+    else{
+      const d=diffWords(la,lb);
+      html+=d.html+'\n';adds+=d.adds;dels+=d.dels;same+=d.same;
+    }
+  }
+  document.getElementById('diffResult').innerHTML=html;
+  document.getElementById('addCount').textContent=adds;
+  document.getElementById('delCount').textContent=dels;
+  const total=same+adds+dels;
+  document.getElementById('matchRate').textContent=total?Math.round(same/total*100)+'%':'100%';
+}
+function diffWords(a,b){
+  const wa=a.split(''),wb=b.split('');
+  const dp=[];for(let i=0;i<=wa.length;i++){dp[i]=[];for(let j=0;j<=wb.length;j++){if(i===0)dp[i][j]=j;else if(j===0)dp[i][j]=i;else if(wa[i-1]===wb[j-1])dp[i][j]=dp[i-1][j-1];else dp[i][j]=1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])}}
+  let i=wa.length,j=wb.length;const ops=[];
+  while(i>0||j>0){if(i>0&&j>0&&wa[i-1]===wb[j-1]){ops.unshift({t:'eq',c:wa[i-1]});i--;j--}else if(j>0&&(i===0||dp[i][j-1]<=dp[i-1][j])){ops.unshift({t:'add',c:wb[j-1]});j--}else{ops.unshift({t:'del',c:wa[i-1]});i--}}
+  let html='',adds=0,dels=0,same=0;
+  ops.forEach(o=>{if(o.t==='eq'){html+=esc(o.c);same++}else if(o.t==='add'){html+=`<span class="diff-add">${esc(o.c)}</span>`;adds++}else{html+=`<span class="diff-del">${esc(o.c)}</span>`;dels++}});
+  return{html,adds,dels,same};
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function swapTexts(){const a=document.getElementById('text1').value;document.getElementById('text1').value=document.getElementById('text2').value;document.getElementById('text2').value=a}
+function clearAll(){document.getElementById('text1').value='';document.getElementById('text2').value='';document.getElementById('diffResult').textContent='「比較する」ボタンを押すと結果が表示されます';document.getElementById('addCount').textContent='0';document.getElementById('delCount').textContent='0';document.getElementById('matchRate').textContent='-'}
+</script>
+</body>
+</html>

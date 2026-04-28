@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日数計算ツール - 2つの日付の間の日数を計算 | ToolBox</title>
+<meta name="description" content="2つの日付の間が何日あるか瞬時に計算。あと何日？何日前？がすぐわかる無料ツール。営業日計算にも対応。">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#5b8af5;--accent-glow:rgba(91,138,245,.15);--green:#4ade80;--orange:#fb923c;--radius:12px;--mono:'JetBrains Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}.site-header{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px)}.header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}.logo span{color:var(--accent)}nav a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:600;margin-left:28px;transition:color .2s}nav a:hover{color:var(--text)}.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px 0;font-size:.8rem;color:var(--text-dim)}.breadcrumb a{color:var(--text-dim);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}.main{max-width:900px;margin:0 auto;padding:32px 24px 80px}.main h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.subtitle{color:var(--text-dim);font-size:.95rem;margin-bottom:32px}.tool-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px}.date-inputs{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end;margin-bottom:24px}.date-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text-dim)}.date-group input[type=date]{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:1rem;outline:none;transition:border-color .2s}.date-group input[type=date]:focus{border-color:var(--accent)}.arrow-sep{font-size:1.5rem;color:var(--text-dim);text-align:center;padding-bottom:8px}.result-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:20px}.result-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}.result-val{font-family:var(--mono);font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1.2}.result-label{font-size:.8rem;color:var(--text-dim);margin-top:4px;font-weight:600}.quick-section{margin-top:24px}.quick-section h3{font-size:.95rem;font-weight:700;margin-bottom:12px}.quick-btns{display:flex;flex-wrap:wrap;gap:8px}.quick-btn{padding:8px 16px;font-size:.8rem;font-weight:600;border:1px solid var(--border);border-radius:8px;background:var(--surface2);color:var(--text-dim);cursor:pointer;transition:all .15s;font-family:'Noto Sans JP',sans-serif}.quick-btn:hover{border-color:var(--accent);color:var(--text)}.ad-slot{margin:32px 0}.ad-placeholder{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);height:90px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.8rem}.seo-content{margin-top:48px}.seo-content h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}.seo-content h3{font-size:1.05rem;font-weight:700;margin-top:24px;margin-bottom:8px}.seo-content p{color:var(--text-dim);font-size:.9rem;margin-bottom:12px}.site-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem}.site-footer a{color:var(--text-dim);text-decoration:none;margin:0 12px}.site-footer a:hover{color:var(--text)}@media(max-width:640px){.date-inputs{grid-template-columns:1fr;gap:12px}.arrow-sep{display:none}.result-cards{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="../index.html" class="logo">Tool<span>Box</span></a><nav><a href="../index.html">ホーム</a><a href="../index.html#tools">ツール一覧</a></nav></div></header>
+<div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; <span>日数計算</span></div>
+<div class="main">
+<h1>日数計算ツール</h1>
+<p class="subtitle">2つの日付の間が何日あるか瞬時に計算。「あと何日？」がすぐわかります。</p>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="tool-area">
+<div class="date-inputs">
+<div class="date-group"><label>開始日</label><input type="date" id="dateFrom"></div>
+<div class="arrow-sep">→</div>
+<div class="date-group"><label>終了日</label><input type="date" id="dateTo"></div>
+</div>
+<div class="result-cards">
+<div class="result-card"><div class="result-val" id="resDays">-</div><div class="result-label">日数</div></div>
+<div class="result-card"><div class="result-val" id="resWeeks">-</div><div class="result-label">週と日</div></div>
+<div class="result-card"><div class="result-val" id="resMonths">-</div><div class="result-label">月数（概算）</div></div>
+<div class="result-card"><div class="result-val" id="resHours">-</div><div class="result-label">時間</div></div>
+<div class="result-card"><div class="result-val" id="resBizDays">-</div><div class="result-label">営業日（土日除く）</div></div>
+</div>
+<div class="quick-section">
+<h3>クイック計算（今日から）</h3>
+<div class="quick-btns">
+<button class="quick-btn" onclick="quickCalc(7)">1週間後</button>
+<button class="quick-btn" onclick="quickCalc(30)">30日後</button>
+<button class="quick-btn" onclick="quickCalc(60)">60日後</button>
+<button class="quick-btn" onclick="quickCalc(90)">90日後</button>
+<button class="quick-btn" onclick="quickCalc(100)">100日後</button>
+<button class="quick-btn" onclick="quickCalc(365)">1年後</button>
+</div>
+</div>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="seo-content">
+<h2>日数計算ツールの使い方</h2>
+<p>開始日と終了日を選択するだけで、その間の日数を自動で計算します。日数だけでなく、週数・月数・時間数・営業日数もまとめて確認できます。</p>
+<h3>こんな時に便利</h3>
+<p>イベントまであと何日か知りたい時、プロジェクトの期間を計算したい時、締め切りまでの残り日数を確認したい時、記念日から何日経ったか知りたい時などにお使いいただけます。</p>
+<h3>営業日計算について</h3>
+<p>土曜日と日曜日を除いた営業日数を自動で算出します。祝日は含んでいないため、厳密な営業日数が必要な場合はご注意ください。</p>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+</div>
+<footer class="site-footer"><p>&copy; 2026 ToolBox</p><p style="margin-top:8px"><a href="../privacy.html">プライバシーポリシー</a><a href="../about.html">このサイトについて</a></p></footer>
+<script>
+const df=document.getElementById('dateFrom'),dt=document.getElementById('dateTo');
+const today=new Date();
+df.value=fmt(today);dt.value=fmt(new Date(today.getTime()+30*864e5));
+df.addEventListener('change',calc);dt.addEventListener('change',calc);
+
+function fmt(d){return d.toISOString().slice(0,10)}
+function calc(){
+  const a=new Date(df.value),b=new Date(dt.value);
+  if(isNaN(a)||isNaN(b))return;
+  const diff=Math.abs(b-a);
+  const days=Math.round(diff/864e5);
+  const weeks=Math.floor(days/7);
+  const remDays=days%7;
+  const months=(days/30.44).toFixed(1);
+  const hours=days*24;
+  // biz days
+  let biz=0;const start=new Date(Math.min(a,b)),end=new Date(Math.max(a,b));
+  const cur=new Date(start);
+  while(cur<end){const dow=cur.getDay();if(dow!==0&&dow!==6)biz++;cur.setDate(cur.getDate()+1)}
+  document.getElementById('resDays').textContent=days.toLocaleString();
+  document.getElementById('resWeeks').textContent=weeks+'週'+remDays+'日';
+  document.getElementById('resMonths').textContent=months;
+  document.getElementById('resHours').textContent=hours.toLocaleString();
+  document.getElementById('resBizDays').textContent=biz.toLocaleString();
+}
+function quickCalc(n){
+  df.value=fmt(today);
+  dt.value=fmt(new Date(today.getTime()+n*864e5));
+  calc();
+}
+calc();
+</script>
+</body>
+</html>

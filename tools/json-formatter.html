@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON整形ツール - JSONを読みやすくフォーマット | ToolBox</title>
+<meta name="description" content="JSONデータを読みやすく整形・圧縮。バリデーション機能付き。コピー＆ペーストで即座にフォーマット。無料・登録不要。">
+<link rel="canonical" href="">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;--text:#e8e8f0;--text-dim:#8888a0;--accent:#5b8af5;--accent-glow:rgba(91,138,245,.15);--green:#4ade80;--orange:#fb923c;--red:#f87171;--radius:12px;--mono:'JetBrains Mono',monospace}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}.site-header{border-bottom:1px solid var(--border);padding:16px 0;position:sticky;top:0;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(20px)}.header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}.logo span{color:var(--accent)}nav a{color:var(--text-dim);text-decoration:none;font-size:.875rem;font-weight:600;margin-left:28px;transition:color .2s}nav a:hover{color:var(--text)}.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px 0;font-size:.8rem;color:var(--text-dim)}.breadcrumb a{color:var(--text-dim);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}.main{max-width:900px;margin:0 auto;padding:32px 24px 80px}.main h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.subtitle{color:var(--text-dim);font-size:.95rem;margin-bottom:32px}.editor-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}.editor-col label{display:block;font-size:.85rem;font-weight:700;margin-bottom:6px}.editor-col textarea{width:100%;height:350px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--mono);font-size:.85rem;line-height:1.6;padding:16px;resize:vertical;outline:none;transition:border-color .2s}.editor-col textarea:focus{border-color:var(--accent)}.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.btn{padding:10px 20px;font-size:.85rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;transition:all .15s;font-family:'Noto Sans JP',sans-serif}.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{opacity:.85}.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-dim)}.btn-outline:hover{border-color:var(--accent);color:var(--text)}.status-bar{padding:10px 16px;border-radius:8px;font-size:.85rem;font-weight:600;margin-bottom:24px}.status-ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);color:var(--green)}.status-err{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--red)}.status-empty{background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}.stats{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px}.stat-item{font-size:.85rem;color:var(--text-dim)}.stat-item span{font-family:var(--mono);color:var(--accent);font-weight:700}.ad-slot{margin:32px 0}.ad-placeholder{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);height:90px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:.8rem}.seo-content{margin-top:48px}.seo-content h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}.seo-content h3{font-size:1.05rem;font-weight:700;margin-top:24px;margin-bottom:8px}.seo-content p{color:var(--text-dim);font-size:.9rem;margin-bottom:12px}.site-footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-dim);font-size:.8rem}.site-footer a{color:var(--text-dim);text-decoration:none;margin:0 12px}.site-footer a:hover{color:var(--text)}@media(max-width:640px){.editor-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="../index.html" class="logo">Tool<span>Box</span></a><nav><a href="../index.html">ホーム</a><a href="../index.html#tools">ツール一覧</a></nav></div></header>
+<div class="breadcrumb"><a href="../index.html">ホーム</a> &gt; <span>JSON整形</span></div>
+<div class="main">
+<h1>JSON整形ツール</h1>
+<p class="subtitle">JSONデータを読みやすく整形・圧縮。バリデーション機能でエラーも即チェック。</p>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="editor-wrap">
+<div class="editor-col"><label>入力（JSON）</label><textarea id="jsonInput" placeholder='{"name":"太郎","age":25,"hobbies":["読書","映画"]}'></textarea></div>
+<div class="editor-col"><label>出力（整形結果）</label><textarea id="jsonOutput" readonly placeholder="整形結果がここに表示されます"></textarea></div>
+</div>
+<div class="btn-row">
+<button class="btn btn-accent" onclick="formatJSON()">整形する</button>
+<button class="btn btn-outline" onclick="minifyJSON()">圧縮する</button>
+<button class="btn btn-outline" onclick="copyOutput()">出力をコピー</button>
+<button class="btn btn-outline" onclick="clearAll()">クリア</button>
+<button class="btn btn-outline" onclick="loadSample()">サンプル</button>
+</div>
+<div class="status-bar status-empty" id="statusBar">JSONを入力して「整形する」を押してください</div>
+<div class="stats"><div class="stat-item">キー数: <span id="keyCount">0</span></div><div class="stat-item">深さ: <span id="depthCount">0</span></div><div class="stat-item">サイズ: <span id="sizeCount">0 B</span></div></div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+<div class="seo-content">
+<h2>JSON整形ツールの使い方</h2>
+<p>左のテキストエリアにJSONデータを貼り付けて「整形する」ボタンを押すだけ。インデント付きの読みやすいJSONに変換されます。「圧縮する」を押すと、改行やスペースを除いたミニファイ形式に変換できます。</p>
+<h3>バリデーション機能</h3>
+<p>入力されたJSONが正しい形式かどうかを自動でチェックします。エラーがある場合は、エラーの内容と位置を表示します。</p>
+<h3>プライバシーについて</h3>
+<p>入力されたデータはすべてブラウザ内で処理されます。サーバーへの送信は一切ありません。</p>
+</div>
+<div class="ad-slot"><div class="ad-placeholder">広告スペース（AdSense）</div></div>
+</div>
+<footer class="site-footer"><p>&copy; 2026 ToolBox</p><p style="margin-top:8px"><a href="../privacy.html">プライバシーポリシー</a><a href="../about.html">このサイトについて</a></p></footer>
+<script>
+function formatJSON(){
+  const input=document.getElementById('jsonInput').value.trim();
+  if(!input){setStatus('empty','JSONを入力してください');return}
+  try{
+    const obj=JSON.parse(input);
+    const out=JSON.stringify(obj,null,2);
+    document.getElementById('jsonOutput').value=out;
+    setStatus('ok','有効なJSONです');
+    updateStats(obj,out);
+  }catch(e){
+    setStatus('err','JSONエラー: '+e.message);
+    document.getElementById('jsonOutput').value='';
+  }
+}
+function minifyJSON(){
+  const input=document.getElementById('jsonInput').value.trim();
+  if(!input){setStatus('empty','JSONを入力してください');return}
+  try{
+    const obj=JSON.parse(input);
+    const out=JSON.stringify(obj);
+    document.getElementById('jsonOutput').value=out;
+    setStatus('ok','圧縮完了');
+    updateStats(obj,out);
+  }catch(e){setStatus('err','JSONエラー: '+e.message)}
+}
+function copyOutput(){const t=document.getElementById('jsonOutput').value;if(t)navigator.clipboard.writeText(t)}
+function clearAll(){document.getElementById('jsonInput').value='';document.getElementById('jsonOutput').value='';setStatus('empty','JSONを入力して「整形する」を押してください');document.getElementById('keyCount').textContent='0';document.getElementById('depthCount').textContent='0';document.getElementById('sizeCount').textContent='0 B'}
+function setStatus(type,msg){const el=document.getElementById('statusBar');el.textContent=msg;el.className='status-bar status-'+type}
+function loadSample(){
+  const s={"name":"山田太郎","age":28,"email":"taro@example.com","address":{"city":"東京","zip":"100-0001"},"hobbies":["プログラミング","読書","映画鑑賞"],"scores":[85,92,78,95]};
+  document.getElementById('jsonInput').value=JSON.stringify(s);
+  formatJSON();
+}
+function countKeys(obj){let c=0;if(typeof obj==='object'&&obj!==null){if(Array.isArray(obj)){obj.forEach(v=>{c+=countKeys(v)})}else{for(const k in obj){c++;c+=countKeys(obj[k])}}}return c}
+function getDepth(obj){if(typeof obj!=='object'||obj===null)return 0;const vals=Array.isArray(obj)?obj:Object.values(obj);if(vals.length===0)return 1;return 1+Math.max(...vals.map(getDepth))}
+function updateStats(obj,str){
+  document.getElementById('keyCount').textContent=countKeys(obj);
+  document.getElementById('depthCount').textContent=getDepth(obj);
+  const bytes=new Blob([str]).size;
+  document.getElementById('sizeCount').textContent=bytes>1024?(bytes/1024).toFixed(1)+' KB':bytes+' B';
+}
+</script>
+</body>
+</html>
